@@ -35,7 +35,6 @@
                 ],
     "init_xml": [],
     "update_xml": [
-                    'security/ir.model.access.csv',
                     'stock/stock_view.xml',
                     'account/account_view.xml',
                   ],  
