@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+
+    <record id="view_delivery_list_picking_out" model="ir.ui.view">
+        <field name="name">view.delivery_list_picking_out</field>
+        <field name="model">stock.picking.out</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Delivery Carrier">
+                    <field name="carrier_ids">
+                        
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+
+    <record id="view_delivery_inherit_new" model="ir.ui.view">
+        <field name="name">view.delivery_inherit</field>
+        <field name="model">stock.picking.out</field>
+        <field name="inherit_id" ref="delivery.view_picking_withcarrier_out_form"/>
+        <field name="arch" type="xml">
+            <field name="carrier_id" position="replace">
+                <field name="carrier_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+
+</data>
+</openerp>
