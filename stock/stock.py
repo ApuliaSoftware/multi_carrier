@@ -49,17 +49,6 @@ class stock_picking(osv.osv):
     }
 
 
-'''class document_carriers(osv.osv):
-    _name = "document.carriers"
-
-    _columns = {
-        'pick_id': fields.many2one('stock.picking.out', 'Related Picking'),
-        'invoice_id': fields.many2one('account.invoice', 'Related Invoice'),
-        'carrier2_id': fields.many2one('delivery.carrier', 'Delivery Method'),
-    }
-'''
-
-
 class stock_invoice_onshipping(osv.osv_memory):
     _inherit = "stock.invoice.onshipping"
 
@@ -84,7 +73,7 @@ class stock_invoice_onshipping(osv.osv_memory):
             if picking.carrier_ids:
                 carrier_ids = []
                 for carrier in picking.carrier_ids:
-                        carrier_ids.append(carrier.id)
+                    carrier_ids.append(carrier.id)
                 invoice_obj.write(
                     cr, uid, res[pick_id],
                     {'carrier_ids': [(6, 0, carrier_ids)]}, context)
