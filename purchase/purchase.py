@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Apulia Software S.r.l. (<info@apuliuasoftware.it>)
+#    Copyright (C) 2014 Francesco Apruzzese (<f.apruzzese@apuliasoftware.it>)
 #    All Rights Reserved
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,6 +19,18 @@
 #
 ##############################################################################
 
-import stock
-import account
-import purchase
+from osv import fields, osv
+from tools.translate import _
+
+
+class purchase_order(osv.osv):
+    _inherit = "purchase.order"
+
+    _columns = {
+        'carrier_ids': fields.many2many(
+            'delivery.carrier',
+            'purchase_carrier_rel',
+            'purchase_id',
+            'carrier_id',
+            'Related Carrier'),
+    }
